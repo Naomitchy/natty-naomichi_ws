@@ -26,9 +26,10 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content fade-in-up">
+            <p class="hero-eyebrow"><span class="ib">大人のための</span><span class="ib">パートナーシップ・</span><span class="ib">ワークショップ</span></p>
             <h1 class="hero-title"><span class="ib">こじらせが</span><span class="ib">溶けるほど</span><br><span class="ib">恋したい。</span></h1>
             <p class="hero-subtitle"><span class="ib">〜あなただけの</span><span class="ib">パートナーシップの</span><span class="ib">カタチ〜</span></p>
-            <a href="#apply" class="cta-button primary-cta">2026.5.2 SAT 参加申込</a>
+            <a href="#apply" class="cta-button primary-cta">2026.5.2 SAT 開催</a>
         </div>
     </header>
 
@@ -204,9 +205,9 @@
             if (now - lastHeartTime < 80) return;
             lastHeartTime = now;
 
-            const heart = document.createElement('div');
-            heart.classList.add('interactive-heart');
-            heart.innerHTML = '❤';
+            const ember = document.createElement('div');
+            ember.classList.add('interactive-ember');
+            ember.innerHTML = '';
 
             // Get coordinates (mouse or touch)
             let x, y;
@@ -221,30 +222,29 @@
             // Calculate position relative to hero element
             const rect = hero.getBoundingClientRect();
             
-            // Only create heart if cursor is strictly inside the hero area
+            // Only create if cursor is strictly inside the hero area
             if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
-                heart.style.left = (x - rect.left) + 'px';
-                heart.style.top = (y - rect.top) + 'px';
+                ember.style.left = (x - rect.left) + 'px';
+                ember.style.top = (y - rect.top) + 'px';
 
-                // Randomize size slightly
-                const sizeInfo = Math.random() * 0.8 + 0.8; 
-                heart.style.fontSize = `${sizeInfo}rem`;
+                // Randomize size for embers (2px to 6px)
+                const sizeInfo = Math.random() * 4 + 2; 
+                ember.style.width = `${sizeInfo}px`;
+                ember.style.height = `${sizeInfo}px`;
                 
-                // Randomize color (warm terracotta, pale pink, soft brown)
-                const colors = ['#D4A373', '#E07A5F', '#e6b8a2', '#f2dcd5'];
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                // Randomize color (Amber, Warm gold)
+                const colors = ['#D97706', '#F59E0B', '#FCD34D', '#ffedd5'];
+                ember.style.color = colors[Math.floor(Math.random() * colors.length)];
 
-                // Randomize organic movements (drift and rotation)
+                // Randomize organic movements (drift)
                 const drift = (Math.random() - 0.5) * 60; // -30px to +30px drift
-                const rotate = (Math.random() - 0.5) * 40; // -20deg to +20deg
-                heart.style.setProperty('--drift', `${drift}px`);
-                heart.style.setProperty('--rotate', `${rotate}deg`);
+                ember.style.setProperty('--drift', `${drift}px`);
 
-                hero.appendChild(heart);
+                hero.appendChild(ember);
 
                 // Remove from DOM after animation finishes
                 setTimeout(() => {
-                    heart.remove();
+                    ember.remove();
                 }, 1500);
             }
         }

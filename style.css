@@ -1,13 +1,13 @@
-/* style.css */
+/* style.css - Deep Night / Bonfire Theme */
 
 :root {
-    --color-bg: #FCFBF9; /* Warm off-white */
-    --color-bg-secondary: #F4EBE8; /* Very pale pink/beige */
-    --color-text-main: #3D3534; /* Deep warm brown */
-    --color-text-light: #6D6361; /* Softer text */
-    --color-accent: #D4A373; /* Warm, calming terrestrial orange/gold */
-    --color-accent-hover: #B88B5D;
-    --color-card-bg: rgba(255, 255, 255, 0.9);
+    --color-bg: #0F172A; /* Deep beautiful navy */
+    --color-bg-secondary: #1E293B; /* Slightly lighter navy */
+    --color-text-main: #F8FAFC; /* Crisp, readable off-white */
+    --color-text-light: #CBD5E1; /* Muted slate for reading */
+    --color-accent: #D97706; /* Bonfire Amber */
+    --color-accent-hover: #F59E0B; /* Lighter Amber for hover */
+    --color-card-bg: rgba(30, 41, 59, 0.7); /* Translucent dark area */
 
     --font-heading: 'Shippori Mincho', serif;
     --font-body: 'Noto Sans JP', sans-serif;
@@ -74,7 +74,7 @@ a:hover {
     letter-spacing: 0.05em;
 }
 
-/* Beautiful Hero with CSS Gradients instead of Image */
+/* Beautiful Hero with Dark CSS Gradients */
 .hero {
     height: 100vh;
     min-height: 500px;
@@ -85,9 +85,9 @@ a:hover {
     position: relative;
     overflow: hidden;
     background: 
-        radial-gradient(circle at 10% 20%, rgba(245, 230, 225, 1) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(230, 215, 205, 1) 0%, transparent 60%),
-        radial-gradient(circle at 50% 50%, rgba(255, 250, 248, 1) 0%, rgba(244, 235, 232, 1) 100%);
+        radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(180, 83, 9, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, #0F172A 0%, #020617 100%);
 }
 
 /* Adds soft light overlay */
@@ -95,7 +95,7 @@ a:hover {
     content: '';
     position: absolute;
     top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%);
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(217, 119, 6, 0) 60%);
     animation: pulseLight 15s infinite alternate ease-in-out;
     pointer-events: none;
 }
@@ -117,6 +117,15 @@ a:hover {
     100% { opacity: 1; transform: translateY(0); }
 }
 
+.hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    color: var(--color-accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
 .hero-title {
     font-size: clamp(1.7rem, 6.5vw, 4.2rem);
     line-height: 1.4;
@@ -135,6 +144,9 @@ a:hover {
     margin-bottom: 3.5rem;
     color: var(--color-text-main);
     opacity: 0.85;
+    word-break: auto-phrase;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 /* CTA Buttons */
@@ -148,7 +160,7 @@ a:hover {
     text-align: center;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.25);
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.25);
 }
 
 .primary-cta {
@@ -161,7 +173,7 @@ a:hover {
     background-color: var(--color-accent-hover);
     color: #fff;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.4);
+    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
 }
 
 /* Pain Section */
@@ -179,12 +191,15 @@ a:hover {
     background: var(--color-card-bg);
     padding: 3rem 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    border-top: 4px solid var(--color-bg-secondary);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border-top: 4px solid var(--color-accent);
     transition: border-color 0.3s ease;
+    border-left: 1px solid rgba(255,255,255,0.05);
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.pain-card:hover { border-color: var(--color-accent); }
+.pain-card:hover { border-color: var(--color-accent-hover); }
 
 .pain-card p {
     margin-bottom: 1.2rem;
@@ -214,10 +229,11 @@ a:hover {
 }
 
 .solution-content {
-    background: #fff;
+    background: var(--color-card-bg);
     padding: 3.5rem 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.03);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .solution-content h3 {
@@ -236,10 +252,11 @@ a:hover {
 }
 
 .example-box {
-    background: var(--color-bg-secondary);
+    background: rgba(0,0,0,0.2);
     padding: 2.5rem;
     border-radius: 12px;
     margin-bottom: 3rem;
+    border: 1px solid rgba(255,255,255,0.03);
 }
 
 .example-box p {
@@ -283,9 +300,9 @@ a:hover {
 
 .rule {
     padding: 2.5rem;
-    border: 1px solid rgba(212, 163, 115, 0.4);
+    border: 1px solid rgba(217, 119, 6, 0.3);
     border-radius: var(--border-radius);
-    background: #fff;
+    background: var(--color-card-bg);
 }
 
 .rule h4 {
@@ -322,15 +339,16 @@ a:hover {
     flex: 1;
     min-width: 280px;
     max-width: 380px;
-    background: #fff;
+    background: var(--color-card-bg);
     padding: 3rem 2rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     text-align: center;
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .profile-card:hover {
@@ -343,7 +361,7 @@ a:hover {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
-    border: 4px solid var(--color-bg-secondary);
+    border: 4px solid var(--color-bg);
     padding: 4px;
 }
 
@@ -379,11 +397,12 @@ a:hover {
 }
 
 .event-info {
-    background: #fff;
+    background: var(--color-card-bg);
     padding: 3rem 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     margin-bottom: 3.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .info-list {
@@ -393,7 +412,7 @@ a:hover {
 
 .info-list li {
     padding: 1.2rem 0;
-    border-bottom: 1px solid var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-bg);
     display: flex;
     flex-direction: column;
 }
@@ -404,6 +423,7 @@ a:hover {
     }
     .info-list li strong {
         min-width: 100px;
+        color: var(--color-accent);
     }
 }
 
@@ -413,10 +433,11 @@ a:hover {
 }
 
 .form-wrapper {
-    background: #fff;
+    background: var(--color-card-bg);
     padding: 3.5rem 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .form-wrapper h3 {
@@ -436,7 +457,7 @@ a:hover {
 }
 
 .required {
-    background: #D4A373;
+    background: #D97706;
     color: white;
     font-size: 0.75rem;
     padding: 3px 8px;
@@ -446,7 +467,7 @@ a:hover {
 }
 
 .optional {
-    background: #ccc;
+    background: #475569;
     color: white;
     font-size: 0.75rem;
     padding: 3px 8px;
@@ -460,20 +481,21 @@ input[type="email"],
 textarea {
     width: 100%;
     padding: 1.2rem 1rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-bg);
     border-radius: 8px;
     font-family: var(--font-body);
     font-size: 1rem;
     transition: all 0.3s;
-    background-color: #fafbfc;
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
 }
 
 input:focus,
 textarea:focus {
     outline: none;
     border-color: var(--color-accent);
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.15);
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.3);
 }
 
 .form-submit {
@@ -492,8 +514,8 @@ textarea:focus {
 .footer {
     text-align: center;
     padding: 2.5rem;
-    background-color: var(--color-text-main);
-    color: rgba(255,255,255,0.7);
+    background-color: #020617;
+    color: #94A3B8;
     font-size: 0.95rem;
 }
 
@@ -534,26 +556,27 @@ textarea:focus {
     }
 }
 
-/* Interactive Heart Animation */
-.interactive-heart {
+/* Interactive Ember Animation */
+.interactive-ember {
     position: absolute;
     pointer-events: none;
-    opacity: 0.7;
-    font-size: 1.2rem;
+    opacity: 0.9;
     user-select: none;
     transform: translate(-50%, -50%);
-    animation: floatHeart 1.5s ease-out forwards;
+    animation: floatEmber 1.8s ease-out forwards;
     z-index: 5;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background-color: currentColor;
+    box-shadow: 0 0 15px 2px currentColor;
 }
 
-@keyframes floatHeart {
+@keyframes floatEmber {
     0% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5);
     }
     100% {
         opacity: 0;
-        transform: translate(calc(-50% + var(--drift, 0px)), -120px) scale(1.5) rotate(var(--rotate, 15deg));
+        transform: translate(calc(-50% + var(--drift, 0px)), -150px) scale(1.5);
     }
 }
